@@ -16,14 +16,15 @@ export default class Login extends React.Component {
 			password: ''
 		};
 	}
+	
+	
 
   login(e) {
-    e.preventDefault();
 	Auth.setRouter(this.context.router);
     Auth.login(this.state.user, this.state.password)
-      .catch(function(err) {
+      /*.catch(function(err) {
         console.log("Error logging in", err);
-      });
+      })*/;
   }
 
   render() {

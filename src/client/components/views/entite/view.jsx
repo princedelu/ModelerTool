@@ -11,6 +11,7 @@ const Entite = React.createClass({
                 to='/'>
                 Home
 			</Link>
+			{this.props.name}
 		</div>
     );
   }

@@ -4,7 +4,7 @@ import EntiteView from '../../views/entite/view.jsx';
 const EntiteContainer = React.createClass({
   render: function() {
     return (
-      <EntiteView />
+      <EntiteView name={this.props.route.name}/>
     );
   }
 });

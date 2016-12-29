@@ -20,9 +20,8 @@ class LoginAction {
 	}
 
 	logoutUser() {
-		this.router.push('/login');
 		localStorage.removeItem('jwt');
-		
+		this.router.push('/login');		
 	}
 }
 

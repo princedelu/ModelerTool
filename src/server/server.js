@@ -14,9 +14,9 @@ const express =       	require('express')
     , path =        	require('path')
 	, bodyParser = 		require('body-parser')
 	, methodOverride = 	require('method-override')
-    , fs = 	        	require('fs');
+    , fs = 	        	require('fs')
+	, appConfig = 			require('../config/app.js').appConfig;
 	
-
 /**
 ########################################################################################################################################
 Variables
@@ -43,11 +43,10 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(err1, req, res, next) {
-  //console.log('500');
   res.sendStatus(err1.status || 500);
 });
 	
-app.set('port', process.env.PORT || 8080);
+app.set('port', appConfig.port);
 http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
 });

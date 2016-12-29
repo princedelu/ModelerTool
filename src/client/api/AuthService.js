@@ -7,11 +7,12 @@ class AuthService {
 	
   setRouter(_router){
 	this.router = _router;
+	LoginActions.setRouter(this.router);
+	
   }
 
   login(username, password) {
 	var jwt = "rrrr";
-	LoginActions.setRouter(this.router);
     LoginActions.loginUser(jwt);
 	return true;
     /*return this.handleAuth(when(request({
