@@ -4,13 +4,25 @@ import {PropTypes} from 'react';
 
 import Routes from './routes/routes.jsx';
 
+// Store
+import configureStore from './store/configureStore'
+
 class Index {
-	
-	
-	launchApp() {
-		ReactDom.render(Routes.getRouter(), document.getElementById('app'));
+
+
+	launchApp(store) {
+		ReactDom.render(Routes.getRouter(store), document.getElementById('app'));
 	}
 }
 
+// Définition de l'état initial
+const initialAppState = {
+	authMessage : {
+		jwt : localStorage.getItem('jwt')
+	}
+}
+
+const store = configureStore(initialAppState)
+
 var index = new Index();
-index.launchApp();
+index.launchApp(store);

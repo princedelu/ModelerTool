@@ -12,7 +12,6 @@ Déclaration
 const express =       	require('express')
     , http =        	require('http')
     , path =        	require('path')
-	, bodyParser = 		require('body-parser')
 	, methodOverride = 	require('method-override')
     , fs = 	        	require('fs')
 	, appConfig = 			require('../config/app.js').appConfig;
@@ -28,7 +27,6 @@ var clientDir = path.join(__dirname, '/../../public');
 
 
 // Définition des mode
-app.use(bodyParser());
 app.use(methodOverride());
 app.use(express.static(clientDir));
 
