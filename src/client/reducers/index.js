@@ -1,14 +1,15 @@
 import CONSTS from '../constants'
 import { combineReducers } from 'redux'
+import { reducer as reduxFormReducer } from 'redux-form'
 
 // Updates error message to notify about the failed fetches.
 function authMessage (state = {}, action) {
   const { type, jwt } = action
-  if (type === CONSTS.ACTIONS.LOGIN_SUCESS) {
+  if (type === CONSTS.ACTIONS.POST_LOGIN_SUCCESS) {
     return Object.assign({}, state, {
         jwt: jwt
     })
-  } else if (type === CONSTS.ACTIONS.LOGOUT_SUCESS) {
+  } else if (type === CONSTS.ACTIONS.DELETE_LOGOUT_SUCCESS) {
     return Object.assign({}, state, {
         jwt: ''
     })
@@ -18,7 +19,8 @@ function authMessage (state = {}, action) {
 }
 
 const rootReducer = combineReducers({
-  authMessage : authMessage
+  authMessage : authMessage,
+  form: reduxFormReducer // mounted under "form"
 })
 
 export default rootReducer

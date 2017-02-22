@@ -1,15 +1,12 @@
 import React from 'react';
 import LoginView from '../../views/login/view.jsx';
 import { connect } from 'react-redux'
-import actions from '../../../actions.js';
 
 const LoginContainer = React.createClass({
 
 	propTypes: {
 		// redux store state, imported below
-		username: ptypes.string.isRequired,
-		// redux action hookups, set up below
-		login: ptypes.func.isRequired
+		username: ptypes.string.isRequired
 	},
 
   getInitialState: function() {
@@ -23,7 +20,7 @@ const LoginContainer = React.createClass({
 
   render: function() {
     return (
-      <LoginView login={this.props.login}/>
+      <LoginView/>
     );
   }
 
@@ -35,7 +32,6 @@ var mapStateToProps = function(state){
 
 var mapDispatchToProps = function(dispatch){
 	return {
-		login: function(login,password,router){ dispatch(actions.login(login,password,router)); }
 	}
 };
 

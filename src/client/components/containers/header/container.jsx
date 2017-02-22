@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderView from '../../views/header/view.jsx';
 import { connect } from 'react-redux';
-import actions from '../../../actions.js';
+import { logout } from '../../../actions/login';
 
 const HeaderContainer = React.createClass({
 
@@ -25,7 +25,7 @@ var mapStateToProps = function(state){
 
 var mapDispatchToProps = function(dispatch){
 	return {
-		logout: function(router){ dispatch(actions.logout(router)); }
+		logout: function(router){ dispatch(logout(router)); }
 	}
 };
 

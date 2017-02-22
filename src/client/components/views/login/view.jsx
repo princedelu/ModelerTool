@@ -1,29 +1,16 @@
 import React from 'react';
 import style from './style.css';
 import {PropTypes} from 'react';
+import LoginForm from './form.js';
 
 export default class Login extends React.Component {
 
 	static propTypes = {
 		// redux store state, imported below
 		jwt : ptypes.string.isRequired,
-		// redux action hookups, set up below
-		login: ptypes.func.isRequired
 	};
 
-	static contextTypes = {
-		router: PropTypes.object.isRequired
-	  };
-
-		handleLogin = e => {
-		 const email = "tttt";
-		 const password = "ddd";
-
-	    this.props.login(email, password,this.context.router);
-	  }
-
-
-  render() {
+	render() {
 		return (
 			<div className={style.fullscreen_bg}>
 				<div className="container">
@@ -37,15 +24,7 @@ export default class Login extends React.Component {
 									</div>
 								</div>
 								<div className="panel-body">
-									<fieldset>
-										<label className="panel-login">
-											<div className="login_result"></div>
-										</label>
-										<input className="form-control" placeholder="Email" id="username" type="text"/>
-										<input className="form-control" placeholder="Mot de passe" id="password" type="password"/>
-										<br></br>
-										<button type="button" className="btn btn-lg btn-primary btn-block" onClick={this.handleLogin}>Login</button>
-									</fieldset>
+								  <LoginForm/>
 								</div>
 							</div>
 						</div>
